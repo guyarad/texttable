@@ -206,6 +206,16 @@ class Texttable:
         self._header = []
         self._rows = []
 
+    def set_width(self, new_max_width):
+        """Set a new width for the table
+
+        - reset max width and horizontal line
+        - remove `_width` field to re-calculate column widths
+        """
+        del self._width
+        self._hline_string = None
+        self._max_width = new_max_width
+
     def set_chars(self, array):
         """Set the characters used to draw lines between rows and columns
 
